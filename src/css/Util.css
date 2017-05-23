@@ -1,0 +1,118 @@
+@import "common.css";
+/*提示层开始*/
+.toast {
+    top: 50%;
+    left: 50%;
+    line-height: 1;
+    padding: 0.2rem;
+    border-radius: 0.1rem;
+    font-size: 0.3rem;
+    z-index: 2;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    text-align: center;
+    transform: translateX(-50%);
+    animation: show 300ms;
+}
+@keyframes show {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+/*提示层结束*/
+
+/*对话框开始*/
+.msg {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 0.35rem;
+    animation: showMsg 300ms;
+    z-index: 2;
+
+}
+.msg .pnl {
+    width: 80%;
+    border-radius: 0.1rem;
+    background-color: #fff;
+    transform: translate3d(0, 0, 0);
+    overflow: hidden;
+    animation: showMsgPnl 300ms;
+}
+.msg .pnl .msg-content {
+    margin: 0.2rem;
+    padding: 0.2rem;
+    font-size: inherit;
+    overflow: auto;
+    text-align: center;
+    -webkit-overflow-scrolling: touch;
+}
+.msg .pnl .ctrls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.msg .btn-alert{
+    color: #66ccff;
+    flex: 1;
+    height: 1rem;
+    line-height: 1rem;
+    font-size: 0.35rem;
+    padding: 0 0.2rem;
+    border-radius: 0.1rem;
+    background-color: #fff;
+    border: 1px solid #dddddd;
+    letter-spacing: 0.05rem; /*字母间距*/
+}
+
+.btn-confirm-sure,.btn-confirm-cancel{
+    flex: 1;
+    height: 1rem;
+    line-height: 1rem;
+    font-size: 0.35rem;
+    background-color: #fff;
+    letter-spacing: 0.05rem; /*字母间距*/
+}
+.btn-confirm-line{
+    height: 1rem;
+    width:1px;
+    background: #ddd;
+    -webkit-transform: scale(0.5,1);
+    transform: scale(0.5,1);
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+}
+
+@keyframes showMsg {
+    0% {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    100% {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+@keyframes showMsgPnl {
+    0% {
+        transform: scale(0.5) translate3d(0, 0, 0);
+    }
+    50% {
+        transform: scale(1.1) translate3d(0, 0, 0);
+    }
+    100% {
+        transform: scale(1) translate3d(0, 0, 0);
+    }
+}
+/*对话框结束*/
+

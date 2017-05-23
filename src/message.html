@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>message</title>
+    <link rel="stylesheet" href="./css/Util.css">
+    <script src="./js/jquery-3.1.1.min.js"></script>
+    <script src="./js/Util.js"></script>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <a href="index.html" class="link left">
+            <i class="iconfont">&#xe660;</i>
+        </a>
+        <div class="center">message</div>
+        <div class="right"></div>
+    </header>
+    <main class="main">
+        <div class="content">
+            <input type="button" class="btn-full alert" value="alert">
+            <input type="button" class="btn-full confirm" value="comfirm">
+            <!--<div class="msg">-->
+                <!--<div class="pnl">-->
+                    <!--<div class="msg-content">你参加的活动马上就要开始啦，点击参加！</div>-->
+                    <!--<div class="ctrls tpx">-->
+                        <!--<input type="button" class="btn-confirm-sure" value="确定">-->
+                        <!--<div class="btn-confirm-line"></div>-->
+                        <!--<input type="button" class="btn-confirm-cancel" value="取消">-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+    </main>
+</div>
+</body>
+</html>
+<script>
+    $(".alert").on("click",function  (){
+        Util.alert("你参加的活动马上就要开始啦，点击参加",function () {
+            Util.toast('参加成功')
+        })
+    })
+
+    $(".confirm").on("click",function  (){
+        Util.confirm({
+            content:"你参加的活动马上就要开始啦，点击参加",
+            sureCb:function (){
+                Util.toast('确定参加')
+            },
+            cancelCb:function (){
+                Util.toast('取消参加')
+            }
+        })
+    })
+
+
+</script>

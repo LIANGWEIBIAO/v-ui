@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>toast</title>
+    <link rel="stylesheet" href="./css/Util.css">
+    <script src="./js/jquery-3.1.1.min.js"></script>
+    <script src="./js/Util.js"></script>
+    <style>
+        .content{
+            padding-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <a href="index.html" class="link left">
+            <i class="iconfont">&#xe660;</i>
+        </a>
+        <div class="center">toast</div>
+        <div class="right"></div>
+    </header>
+    <main class="main">
+        <div class="content">
+            <input type="button" class="btn btn-full" value="显示Msg">
+        </div>
+    </main>
+</div>
+</body>
+</html>
+<script>
+    $(".btn-full").on("click",function  (){
+        Util.toast('成功了',5000)
+    })
+
+</script>

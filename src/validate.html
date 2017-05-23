@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证</title>
+    <link rel="stylesheet" href="./css/Util.css">
+    <script src="./js/jquery-3.1.1.min.js"></script>
+    <script src="./js/Util.js"></script>
+    <style>
+        .content{
+            padding-top: 0.5rem;
+        }
+
+        .validata-line {
+            height: 1rem;
+            border-bottom: 1px solid #dddddd;
+            font-size: 0.3rem;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 0.2rem;
+            align-items: center;
+            cursor: pointer;
+            background-color: #fff;
+        }
+        .validata-label{
+            width: 1.5rem;
+            height: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .user-name-text {
+            flex: 1;
+            padding: 0.2rem;
+            height: 100%;
+            border: none;
+            font-size: inherit;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: initial;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <a href="index.html" class="link left">
+            <i class="iconfont">&#xe660;</i>
+        </a>
+        <div class="center">表单验证</div>
+        <div class="right"></div>
+    </header>
+    <main class="main">
+        <div class="content">
+            <div class="js-validate">
+                <div class="validata-line">
+                    <div class="validata-label">用户名:</div>
+                    <input class="user-name-text" data-validate="user" type="text" value="" placeholder="请输入用户吗">
+                </div>
+                <div class="validata-line">
+                    <div class="validata-label">手机号码:</div>
+                    <input data-validate="phone" class="user-name-text" type="text" value="" placeholder="请输入手机号码">
+                </div>
+                <div class="validata-line">
+                    <div class="validata-label">验证码:</div>
+                    <input class="user-name-text" type="text" value="" placeholder="请输入验证码">
+                </div>
+                <input type="button" class="btn btn-full" value="提交">
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>
+<script>
+
+    $(".btn-full").on("click",function  (){
+
+        var $form = $('.js-validate');
+
+        inputArr = $form.find('*[data-validate]'); //找到所有绑定validate的input
+        ruleArr = []; //data-validate检验规则
+        testRule = true; //验证结果
+        
+        $.each(inputArr,function (i, item){
+            var $target = $(item);
+            ruleArr = $target.data('validate').split(','); //找到这些input框的验证值
+//            if (ruleArr[0] != '') {
+//                $.each(ruleArr, function(j, jObj) {
+//                    checkResult = checkBind(jObj, $target);
+//                    return checkResult;
+//                })
+//            }
+            return checkResult;
+        })
+
+    })
+
+
+</script>

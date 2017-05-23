@@ -1,0 +1,101 @@
+/*1px处理 底部*/
+.tpx {
+    position: relative;
+    border: none;
+}
+
+.rpx {
+    position: relative;
+    border: none;
+}
+
+.lpx {
+    position: relative;
+    border: none;
+}
+
+.bpx {
+    position: relative;
+    border: none;
+}
+
+.tpx:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #dddddd;
+    width: 100%;
+    height: 1px;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+.bpx:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #dddddd;
+    width: 100%;
+    height: 1px;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+.rpx:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-right: 1px solid #fff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+}
+
+.lpx:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid red;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+}
+
+/*四边边框*/
+.spx {
+    position: relative;
+    border: none;
+}
+
+.spx:after {
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border:1px solid red;
+    z-index: 0;
+    content: "";
+    -webkit-transform: scale(0.5);
+    -webkit-transform-origin: 0 0;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+}
