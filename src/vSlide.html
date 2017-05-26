@@ -3,11 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <title>vSlide</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <link rel="stylesheet" href="./css/Util.css">
     <script src="./js/jquery-3.1.1.min.js"></script>
     <script src="./js/plugins/vSlide.js"></script>
+    <!--<script src="./js/rem.js"></script>-->
+    <style>
+        .v-slide{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .swiper-wrapper{
+            width: 30rem;
+            /*height: 100%;*/
+            height: 4rem;
+        }
+        .swiper-slide{
+            float: left;
+            width: 7.5rem;
+            height: 100%;
+        }
+        .swiper-slide img {
+            width: 100%;
+            height:100%;
+        }
+    </style>
 </head>
 <body>
-
+   <div class="v-slide">
+       <ul class="swiper-wrapper">
+           <li class="swiper-slide">
+               <img src="./images/banner-1.jpg" alt="">
+               <span class="slider-text"></span>
+           </li>
+           <li class="swiper-slide">
+               <img src="./images/banner-2.jpg" alt="">
+               <span class="slider-text"></span>
+           </li>
+           <li class="swiper-slide">
+               <img src="./images/banner-3.jpg" alt="">
+               <span class="slider-text"></span>
+           </li>
+           <li class="swiper-slide">
+               <img src="./images/banner-4.jpg" alt="">
+               <span class="slider-text"></span>
+           </li>
+       </ul>
+   </div>
 </body>
 </html>
+<script>
+  $(()=>{
+      var slideBox =  $(".v-slide")
+      var swiperContainer = $('.swiper-wrapper');
+      var swiperPic = $(".swiper-slide")
+
+      var startX = 0; //记录手指的最原始的点击坐标X值
+      var moveX=0; //记录手指滑动时的坐标X值
+      //4.默认的图片索引:因为图片已经默认偏移了一个宽度
+      var index=0;
+      //2.获取banner的宽度
+      var width= slideBox[0].offsetWidth;
+
+      swiperContainer.on("touchstart",function (e) {
+          //需要记录最原始的手指触摸坐标
+          startX= e.touches[0].clientX;
+      })
+      swiperContainer.on("touchmove",function (e) {
+          //记录手指滑动的坐标，根据坐标计算出相对于原始位置的偏移值
+          moveX= e.touches[0].clientX;
+          //计算当前的偏移值
+          distanceX=moveX-startX;
+          console.log(distanceX)
+          //滑动操作不需要添加过渡效果
+          // removeTransition();
+          //设置位置偏移
+          setTranform(-index*width + distanceX);
+      })
+
+      //设置偏移位置
+      function setTranform (distance){
+          console.log(distance)
+          swiperContainer[0].style.webkitTransform="translateX("+distance+"px)";
+          swiperContainer[0].style.transform="translateX("+distance+"px)";
+      }
+
+  })
+
+</script>
