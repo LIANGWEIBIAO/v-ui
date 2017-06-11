@@ -80,7 +80,7 @@ gulp.task('font', ()=> {
 // 自动监听
 gulp.task('auto', () => {
     gulp.watch('src/**/*.html', ['html']),
-    gulp.watch('src/js/*', ['js']),
+    gulp.watch('src/js/**/*.js', ['js']),
     gulp.watch('src/css/*', ['sass']),
     gulp.watch('src/images/*)', ['images'])
     gulp.watch('src/css/font/**/*)', ['font'])
